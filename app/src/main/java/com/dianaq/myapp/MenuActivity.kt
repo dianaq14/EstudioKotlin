@@ -7,6 +7,8 @@ import android.widget.Button
 import com.dianaq.myapp.firstapp.FirstAppActivity
 import com.dianaq.myapp.firstapp.ResultActivity
 import com.dianaq.myapp.imc_calculator.ImcCalculatorActivity
+import com.dianaq.myapp.settings.SettingsActivity
+import com.dianaq.myapp.superhero_app.SuperHeroListActivity
 import com.dianaq.myapp.todoApp.TodoActivity
 
 class MenuActivity : AppCompatActivity() {
@@ -16,9 +18,24 @@ class MenuActivity : AppCompatActivity() {
         val btnSaludApp = findViewById<Button>(R.id.btnSaludApp)
         val btnImcApp = findViewById<Button>(R.id.btnImcApp)
         val btnTODO = findViewById<Button>(R.id.btnTODO)
-        btnSaludApp.setOnClickListener {  }
+        val btnSuperhero = findViewById<Button>(R.id.btnSuperhero)
+        val btnSettings = findViewById<Button>(R.id.btnSettings)
+
+        btnSaludApp.setOnClickListener { navigateToSaludApp() }
         btnImcApp.setOnClickListener { navigateToImcApp() }
         btnTODO.setOnClickListener { navigateToTodoApp() }
+        btnSuperhero.setOnClickListener { navigateToSuperHeroApp() }
+        btnSettings.setOnClickListener { navigatToSettings() }
+    }
+
+    private fun navigateToSuperHeroApp() {
+        val intent = Intent(this, SuperHeroListActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navigatToSettings() {
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
     }
 
     private fun navigateToTodoApp() {
@@ -37,4 +54,5 @@ class MenuActivity : AppCompatActivity() {
         val intent = Intent(this, FirstAppActivity::class.java)
         startActivity(intent)
     }
+
 }
